@@ -1,5 +1,5 @@
    
-DATA = [
+DATA = [                                    #list of dictionary from worker information
     {
         'name': 'Facundo',
         'age': 72,
@@ -73,8 +73,11 @@ DATA = [
 ]
 
 def run():
+#Use of higher order functions: filter, map to make lsit from data given
     all_python_devs = list(filter(lambda worker: worker["language"] == "python", DATA))
     all_python_devs = list(map(lambda worker: worker['name'], all_python_devs))
+
+    print("\nList of python devs:")
 
     for worker in all_python_devs:
         print(worker)
@@ -82,14 +85,15 @@ def run():
     all_platzi_workers = list(filter(lambda worker: worker["organization"] == "Platzi", DATA))
     all_platzi_workers = list(map(lambda worker: worker['name'], all_platzi_workers))
 
-    print(" \n")
+    print(" \nList of platzi workers:")
 
     for worker in all_platzi_workers:
         print(worker)
-        
+
+#List comprenesions on old people and adult list
 
     old_people = [worker for worker in DATA if worker["age"] > 70]
-    print(f"\n {old_people} \n")
+    print(f"\nList of old people: \n{old_people}\n\nList of people less than 70 years:")
 
     adult = [worker for worker in DATA if worker["age"] < 70]
     
